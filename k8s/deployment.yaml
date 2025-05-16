@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rapidcompetitions
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rapidcompetitions
+  template:
+    metadata:
+      labels:
+        app: rapidcompetitions
+    spec:
+      containers:
+        - name: app
+          image: cryptic0053/rapidcompetitions:latest
+          ports:
+            - containerPort: 8000
