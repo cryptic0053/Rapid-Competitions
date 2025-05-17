@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rapidcompetitions
+  labels:
+    app: rapidcompetitions
 spec:
   replicas: 1
   selector:
@@ -13,7 +15,8 @@ spec:
         app: rapidcompetitions
     spec:
       containers:
-        - name: app
+        - name: rapidcompetitions
           image: cryptic0053/rapidcompetitions:latest
           ports:
-            - containerPort: 8000
+            - containerPort: 3000
+          imagePullPolicy: Always
